@@ -1,0 +1,130 @@
+/* src/style.css */
+@import "tailwindcss";
+
+@layer components {
+
+  /* Page background */
+  .page {
+    @apply min-h-screen bg-slate-100 p-6 box-border;
+  }
+
+  /* Main container */
+  .shell {
+    @apply mx-auto max-w-[1200px] overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm;
+  }
+
+  /* ============================= */
+  /* Top Bar (Centered Properly)  */
+  /* ============================= */
+
+  .topbar {
+    @apply border-b border-slate-200 bg-white grid grid-cols-[320px_1fr] items-stretch;
+    height: 112px;                 /* Header height */
+    position: relative;
+  }
+
+  /* Vertical divider matching sidebar */
+  .topbar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 320px;                   /* Must match sidebar width */
+    width: 1px;
+    background: rgb(226 232 240);  /* slate-200 */
+  }
+
+  /* LEFT column: perfectly centered using grid */
+  .topbarLeft {
+    display: grid;
+    place-items: center;           /* True vertical + horizontal centering */
+    height: 100%;
+    padding: 0 24px;
+  }
+
+  /* RIGHT column: breadcrumb vertically centered */
+  .topbarRight {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding: 0 24px;
+  }
+
+  /* Brand style */
+  .brand {
+    @apply flex items-center gap-3 font-semibold text-slate-900;
+  }
+
+  .brand--top {
+    margin: 0;                     /* Remove bottom margin in header */
+  }
+
+  .brandIcon {
+    @apply grid h-10 w-10 place-items-center rounded-xl bg-blue-100 text-base text-blue-600;
+  }
+
+  .breadcrumb {
+    @apply flex flex-wrap items-center gap-2 text-[13px] text-slate-400;
+  }
+
+  .breadcrumb .current {
+    @apply font-semibold text-blue-600;
+  }
+
+  /* ============================= */
+  /* Layout                        */
+  /* ============================= */
+
+  .layout {
+    @apply grid min-h-[620px] grid-cols-[320px_1fr];
+  }
+
+  .sidebar {
+    @apply border-r border-slate-200 bg-slate-50 px-6 py-6;
+  }
+
+  .sidebarTitle {
+    @apply mb-4 text-[11px] font-bold tracking-[0.18em] text-slate-400;
+  }
+
+  .field {
+    @apply mb-6;
+  }
+
+  .field label {
+    @apply mb-2 block text-[11px] font-bold tracking-[0.14em] text-slate-500;
+  }
+
+  .select {
+    @apply h-11 w-full rounded-xl border border-slate-300 bg-white px-4 text-sm text-slate-900 outline-none
+    focus:border-blue-500 focus:ring-4 focus:ring-blue-100 disabled:bg-slate-100 disabled:text-slate-400;
+  }
+
+  .resetBtn {
+    @apply mt-6 h-12 w-full rounded-xl border-2 border-blue-600 bg-transparent font-bold text-blue-600 hover:bg-blue-50;
+  }
+
+  /* ============================= */
+  /* Main Content                  */
+  /* ============================= */
+
+  .main {
+    @apply flex justify-center bg-slate-100 px-10 py-14;
+  }
+
+  .stack {
+    @apply w-full max-w-[560px] text-center;
+  }
+
+  .sectionLabel {
+    @apply mb-3 text-[11px] font-extrabold tracking-[0.32em] text-blue-400;
+  }
+
+  .sectionValue {
+    @apply text-6xl font-black leading-[1.05] text-slate-900;
+  }
+
+  .arrow {
+    @apply my-6 text-2xl text-slate-300;
+  }
+}
